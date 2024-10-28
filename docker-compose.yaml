@@ -3,12 +3,12 @@ networks:
   expense:
 volumes:
   mysql:  # docker volume create mysql
-services: # docker run command
+services:
   mysql:
-   image: gopichand953/mysql:v1
-   container_name: mysql # --name mysql
-   volumes:
-   - mysql:/var/lib/mysql # -v mysql:/var/lib/mysql
+    image: gopichand953/mysql:v1
+    container_name: mysql # --name mysql
+    volumes:
+    - mysql:/var/lib/mysql # -v mysql:/var/lib/mysql
   backend:
     image: gopichand953/backend:v1
     container_name: backend
@@ -16,10 +16,9 @@ services: # docker run command
     depends_on:
     - mysql
   frontend:
-     image: gopichand953/frontend:v1
-     container_name: frontend
-     ports:
-     - 80:80
-     depends_on:
-     - backend
-     
+    image: gopichand953/frontend:v1
+    container_name: frontend
+    ports:
+    - 80:80
+    depends_on:
+    - backend
